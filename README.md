@@ -4,39 +4,17 @@ The challenge of this project was to optimize an online portfolio provided by th
 
 The starting version had a Page Speed score of 30 for Desktop & 28 for Mobile (here's a [live version of the starting page](http://cameronwp.github.io/udportfolio/)) and was overall rendering quite poorly.
 
-To find out how I optimized the page, have a look at the live version here & check out my commits.
-
-
-
-
-
-
+To find out how I optimized the page, have a look at the live version here (add link) & check out my commits.
 
 ### Getting started
 
 ####Part 1: Optimize PageSpeed Insights score for index.html
 
-Some useful tips to help you get started:
+For this part, I have:
 
-1. Check out the repository
-1. To inspect the site on your phone, you can run a local server
+1. Modified the structure of index.html and all the other html pages to make sure that no code was unnecessary blocking the critical rendering path. This included adding media queries to specific stylesheets (i.e. print.css), re-positioning script tags to the bottom of the body tag, adding asynchronous tags to scripts that were not modifying the DOM.
 
-  ```bash
-  $> cd /path/to/your-project-folder
-  $> python -m SimpleHTTPServer 8080
-  ```
-
-1. Open a browser and visit localhost:8080
-1. Download and install [ngrok](https://ngrok.com/) to the top-level of your project directory to make your local server accessible remotely.
-
-  ``` bash
-  $> cd /path/to/your-project-folder
-  $> ./ngrok http 8080
-  ```
-
-1. Copy the public URL ngrok gives you and try running it through PageSpeed Insights! Optional: [More on integrating ngrok, Grunt and PageSpeed.](http://www.jamescryer.com/2014/06/12/grunt-pagespeed-and-ngrok-locally-testing/)
-
-Profile, optimize, measure... and then lather, rinse, and repeat. Good luck!
+2. Used Grunt, a task-automation tool and its plugin [grunt-contrib-imagemin](https://github.com/gruntjs/grunt-contrib-imagemin) to minify the page's images. You can find the task-automation code in gruntfile.js. You will also find instruction on how to run this code by following the plugin's link.
 
 ####Part 2: Optimize Frames per Second in pizza.html
 
