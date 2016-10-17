@@ -500,12 +500,22 @@ function logAverageFrame(times) {   // times is the array of User Timing measure
 function updatePositions() {
   frame++;
   window.performance.mark("mark_start_frame");
+  pixelScrolled = document.body.scrollTop;
 
   var items = document.querySelectorAll('.mover');
+
+  // Collected all the item.basicLeft attribute in an array
+  var itemsBasicLeft = [];
   for (var i = 0; i < items.length; i++) {
-    var phase = Math.sin((document.body.scrollTop / 1250) + (i % 5));
-    items[i].style.left = items[i].basicLeft + 100 * phase + 'px';
+    itemsBasicLeft.push(items[i].basicLeft);
   }
+
+  // Batched all the style changes together to reduce the amount of
+  // forced synchronous layout operations
+  for (var i = 0; i< items.length; i++) {
+    var phase = Math.sin((pixelScrolled / 1250) + (i % 5));
+    items[i].style.left = itemsBasicLeft[i] + 100 * phase + 'px';
+  };
 
   // User Timing API to the rescue again. Seriously, it's worth learning.
   // Super easy to create custom metrics.
