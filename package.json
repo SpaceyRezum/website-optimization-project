@@ -1,0 +1,23 @@
+{
+  "name": "website-optimization",
+  "version": "1.0.0",
+  "description": "website optimization project both for pagespeed and smoother rendering",
+  "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {
+    "grunt": "^1.0.1"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SpaceyRezum/website-optimization-project.git"
+  },
+  "author": "Alexis Bellet",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SpaceyRezum/website-optimization-project/issues"
+  },
+  "homepage": "https://github.com/SpaceyRezum/website-optimization-project#readme"
+}
