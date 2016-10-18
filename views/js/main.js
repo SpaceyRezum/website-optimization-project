@@ -406,13 +406,13 @@ var resizePizzas = function(size) {
   function changeSliderLabel(size) {
     switch(size) {
       case "1":
-        document.querySelector("#pizzaSize").innerHTML = "Small";
+        document.getElementById("pizzaSize").innerHTML = "Small";
         return;
       case "2":
-        document.querySelector("#pizzaSize").innerHTML = "Medium";
+        document.getElementById("pizzaSize").innerHTML = "Medium";
         return;
       case "3":
-        document.querySelector("#pizzaSize").innerHTML = "Large";
+        document.getElementById("pizzaSize").innerHTML = "Large";
         return;
       default:
         console.log("bug in changeSliderLabel");
@@ -424,7 +424,7 @@ var resizePizzas = function(size) {
    // Returns the size difference to change a pizza element from one size to another. Called by changePizzaSlices(size).
   function determineDx (elem, size) {
     var oldWidth = elem.offsetWidth;
-    var windowWidth = document.querySelector("#randomPizzas").offsetWidth;
+    var windowWidth = document.getElementById("randomPizzas").offsetWidth;
     var oldSize = oldWidth / windowWidth;
 
     // Changes the slider value to a percent width
@@ -452,8 +452,9 @@ var resizePizzas = function(size) {
     // dx and newwidth should only depend on the size value injected in the function
     // therefore we do not have to iterate through all the pizza elements to calculate them
     // each time.
-    var firstRandomPizzaContainer = document.querySelector(".randomPizzaContainer");
-    var randomPizzas = document.querySelectorAll(".randomPizzaContainer");
+    var randomPizzas = document.getElementsByClassName("randomPizzaContainer");
+    var firstRandomPizzaContainer = document.getElementsByClassName("randomPizzaContainer")[0];
+    console.log(randomPizzas, firstRandomPizzaContainer);
 
     var dx = determineDx(firstRandomPizzaContainer, size);
     var newwidth = (firstRandomPizzaContainer.offsetWidth + dx) + 'px';
@@ -510,7 +511,7 @@ function updatePositions() {
   window.performance.mark("mark_start_frame");
   pixelScrolled = document.body.scrollTop;
 
-  var items = document.querySelectorAll('.mover');
+  var items = document.getElementsByClassName('mover');
 
   // Collected all the item.basicLeft attribute in an array
   var itemsBasicLeft = [];
@@ -550,7 +551,7 @@ document.addEventListener('DOMContentLoaded', function() {
     elem.style.width = "73.333px";
     elem.basicLeft = (i % cols) * s;
     elem.style.top = (Math.floor(i / cols) * s) + 'px';
-    document.querySelector("#movingPizzas1").appendChild(elem);
+    document.getElementById("movingPizzas1").appendChild(elem);
   }
   updatePositions();
 });
