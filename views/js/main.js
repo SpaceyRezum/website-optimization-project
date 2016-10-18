@@ -452,8 +452,17 @@ var resizePizzas = function(size) {
     // dx and newwidth should only depend on the size value injected in the function
     // therefore we do not have to iterate through all the pizza elements to calculate them
     // each time.
+<<<<<<< HEAD
     var randomPizzas = document.getElementsByClassName("randomPizzaContainer");
     var firstRandomPizzaContainer = document.getElementsByClassName("randomPizzaContainer")[0];
+||||||| merged common ancestors
+    var firstRandomPizzaContainer = document.querySelector(".randomPizzaContainer");
+    var randomPizzas = document.querySelectorAll(".randomPizzaContainer");
+=======
+    var randomPizzas = document.getElementsByClassName("randomPizzaContainer");
+    var firstRandomPizzaContainer = document.getElementsByClassName("randomPizzaContainer")[0];
+    console.log(randomPizzas, firstRandomPizzaContainer);
+>>>>>>> 06b26cebc5d1d588c4039db6ed193aa6ab916246
 
     var dx = determineDx(firstRandomPizzaContainer, size);
     var newwidth = (firstRandomPizzaContainer.offsetWidth + dx) + 'px';
